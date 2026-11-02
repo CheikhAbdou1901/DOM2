@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changeur de couleur</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .conteneur {
+            margin-top: 50px;
+        }
+
+        #color-box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 20px auto;
+        }
+
+        #change-color-btn {
+            background-color: green;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="conteneur">
+
+        <h1>Changeur de couleur</h1>
+
+        <div id="color-box"></div>
+
+        <button id="change-color-btn">
+            Changer de couleur
+        </button>
+
+    </div>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // Selectionner les elements
+            var colorBox = document.getElementById("color-box");
+            var button = document.getElementById("change-color-btn");
+
+            // Fonction pour generer une couleur aleatoire
+            function getRandomColor() {
+
+                var lettres = "0123456789ABCDEF";
+                var couleur = "#";
+
+                for (var i = 0; i < 6; i++) {
+
+                    var nombre = Math.floor(Math.random() * 16);
+
+                    couleur = couleur + lettres[nombre];
+                }
+
+                return couleur;
+            }
+
+            // Ajouter un evenement au bouton
+            button.addEventListener("click", function() {
+
+                var nouvelleCouleur = getRandomColor();
+
+                colorBox.style.backgroundColor = nouvelleCouleur;
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
